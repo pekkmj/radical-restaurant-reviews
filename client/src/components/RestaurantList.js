@@ -25,8 +25,8 @@ const RestaurantList = () => {
     const restaurantList = restaurants.map((restaurant) => {
         return (
             <RestaurantTile
-            key={restaurant.id}
-            restaurant={restaurant}
+                key={restaurant.id}
+                restaurant={restaurant}
             />
         )
     })
