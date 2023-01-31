@@ -1,9 +1,11 @@
 /* eslint-disable no-console */
-import { connection } from "../boot.js"
+import { connection } from "../boot.js";
+import RestaurantSeeder from "./seeders/RestaurantSeeder.js";
 
 class Seeder {
   static async seed() {
-    // include individual seed commands here
+    console.log("seeding restaurants")
+    await RestaurantSeeder.seed()
 
     console.log("Done!")
     await connection.destroy()

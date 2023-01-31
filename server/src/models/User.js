@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const Bcrypt = require("bcrypt");
 const unique = require("objection-unique");
-const Model = require("./Model");
+const Model = require("./Model.js");
 
 const saltRounds = 10;
 
