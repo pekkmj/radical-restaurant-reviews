@@ -4,7 +4,7 @@ class RestaurantSeeder {
     static async seed() {
         const restaurantData = [
             {
-                name: "Chuck. E. Cheese",
+                name: "Chuck E. Cheese",
                 address: "29 Mystic View Rd",
                 city: "Boston",
                 state: "Massachusetts",

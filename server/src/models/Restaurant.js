@@ -18,6 +18,21 @@ class Restaurant extends Model {
             }
         }
     }
+
+    static get relationMappings() {
+        const { Review } = require("./index.js")
+
+        return {
+            reviews: {
+                relation: Model.HasManyRelation,
+                modelClass: Review,
+                join: {
+                    from: "restaurants.id",
+                    to: "reviews.restaurantId"
+                }
+            }
+        }
+    }
 }
 
 module.exports = Restaurant

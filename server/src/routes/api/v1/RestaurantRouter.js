@@ -17,6 +17,22 @@ restaurantRouter.get("/", async (req, res) => {
     }
 })
 
+restaurantRouter.get("/:id", async (req, res) => {
+    const { id } = req.params
+
+    try {
+        const restaurant = await Restaurant.query().findById(id)
+        restaurant.reviews = await restaurant.$relatedQuery("reviews")
+        return res.status(200).json({ restaurant: restaurant })
+    } catch (error) {
+        return res.status(500).json({errors: error})
+    }
+})
+
+restaurantRouter.use("/:id/reviews", async (req, res) => {
+    //posting reviews
+})
+
 restaurantRouter.post("/new", async (req, res) => {
     const { formData } = req.body;
     const cleanedFormData = cleanUserInput(formData)
