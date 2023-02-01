@@ -17,7 +17,7 @@ const App = (props) => {
     try {
       const user = await getCurrentUser()
       setCurrentUser(user)
-    } catch(err) {
+    } catch (err) {
       setCurrentUser(null)
     }
   }
