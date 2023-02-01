@@ -11,7 +11,7 @@ const NewRestaurantForm = ({ addRestaurant }) => {
 		description: ''
 	}
 	const [newRestaurant, setNewRestaurant] = useState(emptyNewRestaurant)
-
+  
 	const handleInputChange = (event) => {
 		setNewRestaurant({
 			...newRestaurant,
