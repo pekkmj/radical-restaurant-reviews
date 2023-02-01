@@ -7,7 +7,7 @@ class RestaurantSeeder {
                 name: "Chuck. E. Cheese",
                 address: "29 Mystic View Rd",
                 city: "Boston",
-                state: "MA",
+                state: "Massachusetts",
                 zipCode: "02149",
                 description: "Happiest place on Earth!"
             }
