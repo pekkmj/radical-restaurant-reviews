@@ -6,7 +6,7 @@ class ReviewSeeder {
     const chuckECheeseReviewData = [
       {
         subject: "Best restaurant ever",
-        body: "adsdsa",
+        body: "Tasty food, good entertainment",
         rating: 5
       }
     ]

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Redirect } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 import ReviewList from "./ReviewList.js"
 
@@ -33,13 +33,9 @@ const RestaurantShow = (props) => {
     getRestaurant()
   }, [])
 
-  if (shouldRedirect) {
-    return <Redirect to="/restaurants" />
-  }
-
   return (
     <div>
-      <button type="button" className="button" onClick={handleButtonClick}> Back to restaurants</button>
+      <Link to="/restaurants" className="button">Back to restaurants</Link>
       <h3>{restaurant.name}</h3>
       <p>{restaurant.address}, {restaurant.city}, {restaurant.state}, {restaurant.zipCode}</p>
       <p>{restaurant.description}</p>

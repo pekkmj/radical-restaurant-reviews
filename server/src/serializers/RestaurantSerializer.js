@@ -19,9 +19,7 @@ class RestaurantSerializer {
   static async getDetails(restaurant) {
     const serializedRestaurant = RestaurantSerializer.getSummary(restaurant)
     const relatedReviews = await restaurant.$relatedQuery("reviews")
-    serializedRestaurant.reviews = await Promise.all(
-      relatedReviews.map(review => ReviewSerializer.getSummary(review))
-    )
+    serializedRestaurant.reviews = relatedReviews.map(review => ReviewSerializer.getSummary(review))
     
     return serializedRestaurant
   }
