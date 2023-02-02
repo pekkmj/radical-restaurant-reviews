@@ -63,14 +63,18 @@ const RestaurantList = () => {
     )
   })
 
-    return (
-        <div>
-            <h1>Radical Reviews</h1>
-            <ul>{restaurantList}</ul>
-            <ErrorList errors={errors} />
-            <NewRestaurantForm addRestaurant={addRestaurant} />
+  return (
+    <div>
+        <h1>Radical Reviews</h1>
+        <div className="grid-container">
+            <ul className="grid-x grid-margin-x grid-margin-y">
+                {restaurantList}
+            </ul>
         </div>
-    )
+        <ErrorList errors={errors} />
+        <NewRestaurantForm addRestaurant={addRestaurant} />
+    </div>
+  )
 }
 
 export default RestaurantList
