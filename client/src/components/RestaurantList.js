@@ -60,16 +60,21 @@ const RestaurantList = () => {
                 key={restaurant.id}
                 restaurant={restaurant}
             />
+
         )
     })
 
     return (
-        <div>
+        <>
             <h1>Radical Reviews</h1>
-            <ul>{restaurantList}</ul>
+            <div className="grid-container">
+                <ul className="grid-x grid-margin-x grid-margin-y">
+                    {restaurantList}
+                </ul>
+            </div>
             <ErrorList errors={errors} />
             <NewRestaurantForm addRestaurant={addRestaurant} />
-        </div>
+        </>
     )
 }
 

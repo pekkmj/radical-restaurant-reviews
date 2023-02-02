@@ -12,3 +12,33 @@
   -moz-tab-size: 4;
   tab-size: 4;
 }
+
+.top-bar {
+  background-color: red;
+}
+.menu {
+  background-color: red;
+}
+
+// 'Base' CSS
+
+@media (max-width: 639px) {
+
+  h1 {
+    color: green;
+  }
+}
+
+@media (min-width: 640px) {
+
+  h1 {
+    color: blue;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  h1 {
+    color: red;
+  }
+}
