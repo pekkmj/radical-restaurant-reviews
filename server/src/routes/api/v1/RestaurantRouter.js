@@ -2,16 +2,18 @@ import express from "express";
 import { Restaurant } from "../../../models/index.js";
 
 import Objection from "objection";
-const { ValidationError } = Objection
+const { ValidationError } = Objection;
 
 import cleanUserInput from "../../../services/cleanUserInput.js";
+import RestaurantSerializer from "../../../serializers/RestaurantSerializer.js"
 
 const restaurantRouter = new express.Router()
 
 restaurantRouter.get("/", async (req, res) => {
   try {
     const restaurants = await Restaurant.query()
-    return res.status(200).json({ restaurants: restaurants })
+    const serializedRestaurants = RestaurantSerializer.getSummaries(restaurants)
+    return res.status(200).json({ restaurants: serializedRestaurants })
   } catch (error) {
     return res.status(500).json({ errors: error })
   }
@@ -22,15 +24,11 @@ restaurantRouter.get("/:id", async (req, res) => {
 
   try {
     const restaurant = await Restaurant.query().findById(id)
-    restaurant.reviews = await restaurant.$relatedQuery("reviews")
-    return res.status(200).json({ restaurant: restaurant })
+    const serializedRestaurant = await RestaurantSerializer.getDetails(restaurant)
+    return res.status(200).json({ restaurant: serializedRestaurant })
   } catch (error) {
     return res.status(500).json({ errors: error })
   }
-})
-
-restaurantRouter.use("/:id/reviews", async (req, res) => {
-  //posting reviews
 })
 
 restaurantRouter.post("/new", async (req, res) => {
