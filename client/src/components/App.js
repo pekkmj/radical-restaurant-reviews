@@ -35,11 +35,19 @@ const App = (props) => {
           <h2>Hello from react</h2>
         </Route>
         <Route exact path="/restaurants" component={RestaurantList} />
-        <Route exact path="/restaurants/:id" component={RestaurantShow} />
+        {/* <Route exact path="/restaurants/:id" component={RestaurantShow} /> */}
+        <Route exact path="/restaurants/:id"
+          render={(props) => <RestaurantShow {...props} currentUser={currentUser} />}
+        />
         {/* <Route exact path="/restaurants/:id/new-review" component={NewReviewForm} /> */}
-        <Route path="/restaurants/:id/new-review">
+        {/* <Route path="/restaurants/:id/new-review">
           <NewReviewForm currentUser={currentUser} />
-        </Route> 
+        </Route> */}
+
+        {/* <Route exact path="/restaurants/:id/new-review"
+          render={(props) => <NewReviewForm {...props} currentUser={currentUser} />}
+        /> */}
+
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>
