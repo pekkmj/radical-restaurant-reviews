@@ -1,6 +1,7 @@
 import React from "react"
 
 const ErrorList = props => {
+  console.log(props.error)
   const errantFields = Object.keys(props.errors)
   if (errantFields.length > 0) {
     let index = 0
