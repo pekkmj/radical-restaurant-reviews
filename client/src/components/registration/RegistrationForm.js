@@ -74,12 +74,10 @@ const RegistrationForm = () => {
           const error = new Error(errorMessage);
           throw error;
         }
-        console.log('try')
         const userData = await response.json();
         setShouldRedirect(true);
       }
     } catch (err) {
-      console.log("catch")
       console.error(`Error in fetch: ${err.message}`);
     }
   };
