@@ -26,9 +26,10 @@ const NewReviewForm = ({ restaurantId, currentUser, restaurant, setRestaurant, s
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const responseBody = await addNewReview(newReview)
-    if (responseBody) {
-      setRestaurant({ ...restaurant, reviews: [...restaurant.reviews, responseBody] })
+    const addedReview = await addNewReview(newReview)
+    console.log(addedReview)
+    if (addedReview) {
+      setRestaurant({ ...restaurant, reviews: [...restaurant.reviews, addedReview] })
       setReviewListOrForm("list")
     }
   }
@@ -50,7 +51,8 @@ const NewReviewForm = ({ restaurantId, currentUser, restaurant, setRestaurant, s
         }
         throw new Error(`${response.status} ${response.statusText}`)
       } else {
-        return await response.json();
+        const body = await response.json()
+        return body.review;
       }
     } catch (error) {
       console.error(`Fetch post error: ${error.name} ${error.message}`)
