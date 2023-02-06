@@ -27,7 +27,6 @@ const NewReviewForm = ({ restaurantId, currentUser, restaurant, setRestaurant, s
     event.preventDefault()
 
     const addedReview = await addNewReview(newReview)
-    console.log(addedReview)
     if (addedReview) {
       setRestaurant({ ...restaurant, reviews: [...restaurant.reviews, addedReview] })
       setReviewListOrForm("list")
