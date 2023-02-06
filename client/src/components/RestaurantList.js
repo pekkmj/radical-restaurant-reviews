@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
+
 import RestaurantTile from "./RestaurantTile";
 import NewRestaurantForm from "./NewRestaurantForm.js";
-
-import ErrorList from "./layout/ErrorList.js"
 import translateServerErrors from "../services/translateServerErrors.js"
 
-const RestaurantList = () => {
-
+const RestaurantList = (props) => {
   const [restaurants, setRestaurants] = useState([])
   const [errors, setErrors] = useState({})
 
@@ -67,8 +65,7 @@ const RestaurantList = () => {
     <div>
       <h1>Radical Reviews</h1>
       <ul>{restaurantList}</ul>
-      <ErrorList errors={errors} />
-      <NewRestaurantForm addRestaurant={addRestaurant} />
+      <NewRestaurantForm addRestaurant={addRestaurant} errors={errors} />
     </div>
   )
 }
