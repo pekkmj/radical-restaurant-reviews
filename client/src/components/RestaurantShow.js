@@ -5,7 +5,7 @@ import ReviewList from "./ReviewList.js"
 import NewReviewForm from "./NewReviewForm.js"
 import ErrorList from "./layout/ErrorList.js";
 
-const RestaurantShow = ({ currentUser }) => {
+const RestaurantShow = ({ currentUser, ...props }) => {
   const emptyRestaurant = {
     reviews: []
   }
