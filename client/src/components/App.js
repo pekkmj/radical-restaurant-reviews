@@ -10,6 +10,7 @@ import SignInForm from "./authentication/SignInForm.js";
 import TopBar from "./layout/TopBar.js";
 import RestaurantList from "./RestaurantList.js";
 import RestaurantShow from "./RestaurantShow.js";
+import HomePage from "./HomePage.js";
 
 const App = (props) => {
   const [currentUser, setCurrentUser] = useState(undefined);
@@ -30,9 +31,8 @@ const App = (props) => {
     <Router>
       <TopBar user={currentUser} />
       <Switch>
-        <Route exact path="/">
-          <h2>Hello from react</h2>
-        </Route>
+        <Route exact path="/" component=
+        {HomePage} />
         <Route exact path="/restaurants" component={RestaurantList} />
         <Route exact path="/restaurants/:id" component={RestaurantShow} />
         <Route exact path="/users/new" component={RegistrationForm} />
