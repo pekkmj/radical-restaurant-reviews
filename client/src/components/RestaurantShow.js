@@ -5,9 +5,7 @@ import ReviewList from "./ReviewList.js"
 import NewReviewForm from "./NewReviewForm.js"
 import ErrorList from "./layout/ErrorList.js";
 
-const RestaurantShow = (props) => {
-
-  const { currentUser } = props
+const RestaurantShow = ({ currentUser }) => {
   const emptyRestaurant = {
     reviews: []
   }

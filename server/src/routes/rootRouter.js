@@ -13,6 +13,4 @@ rootRouter.use("/api/v1/users", usersRouter);
 rootRouter.use("/api/v1/restaurants", restaurantRouter);
 rootRouter.use("/api/v1/reviews", reviewsRouter);
 
-//place your server-side routes here
-
 export default rootRouter;

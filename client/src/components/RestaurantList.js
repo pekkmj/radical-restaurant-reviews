@@ -4,7 +4,7 @@ import RestaurantTile from "./RestaurantTile";
 import NewRestaurantForm from "./NewRestaurantForm.js";
 import translateServerErrors from "../services/translateServerErrors.js"
 
-const RestaurantList = () => {
+const RestaurantList = (props) => {
   const [restaurants, setRestaurants] = useState([])
   const [errors, setErrors] = useState({})
 

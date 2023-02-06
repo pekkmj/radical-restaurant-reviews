@@ -1,20 +1,11 @@
 import express from "express";
-import cleanUserInput from "../../../services/cleanUserInput.js";
 import Objection from "objection";
 const { ValidationError } = Objection;
+
+import cleanUserInput from "../../../services/cleanUserInput.js";
 import { Review } from "../../../models/index.js";
 
-
 const reviewsRouter = new express.Router()
-
-reviewsRouter.get('/', async (req, res) => {
-  try {
-    const reviews = await Review.query()
-    return res.status(200).json({ reviews: reviews})
-  } catch (err) {
-    return res.status(500).json({ errors: err })
-  }
-})
 
 reviewsRouter.post('/', async (req, res) => {
   const { formData } = req.body

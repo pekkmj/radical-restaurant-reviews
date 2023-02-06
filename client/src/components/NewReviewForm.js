@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Redirect } from "react-router-dom"
 
 import ratings from "./constants/ratings.js"
 import translateServerErrors from "../services/translateServerErrors.js"
