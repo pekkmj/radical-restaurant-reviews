@@ -23,6 +23,11 @@ class RestaurantSerializer {
     
     return serializedRestaurant
   }
+
+  static async getDetailsFromAll(restaurants) {
+    return await Promise.all(restaurants.map(restaurant => RestaurantSerializer.getDetails(restaurant)))
+  }
+
 }
 
 export default RestaurantSerializer

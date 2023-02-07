@@ -11,7 +11,7 @@ const restaurantRouter = new express.Router()
 restaurantRouter.get("/", async (req, res) => {
   try {
     const restaurants = await Restaurant.query()
-    const serializedRestaurants = RestaurantSerializer.getSummaries(restaurants)
+    const serializedRestaurants = await RestaurantSerializer.getDetailsFromAll(restaurants)
     return res.status(200).json({ restaurants: serializedRestaurants })
   } catch (error) {
     return res.status(500).json({ errors: error })
