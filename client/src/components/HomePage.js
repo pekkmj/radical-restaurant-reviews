@@ -9,6 +9,14 @@ const HomePage = (props) => {
     const [restaurants, setRestaurants] = useState([])
     const [errors, setErrors] = useState({})
     
+    // let totalRating = 0
+
+    // for (let i = 0; i < restaurant.review.length; i++ ) {
+    //     totalRating += restaurant.review[i].rating
+    // }
+
+    // let overallRating = totalRating / restaurant.review.length
+
     let restaurantSeed = {
         restaurant: [
         {
@@ -80,29 +88,29 @@ const HomePage = (props) => {
 
     const top3Restaurants = () => {
 
-        let sample1 = restaurantSeed.restaurant
+        let AllRestaurants = restaurantSeed.restaurant
 
-        sample1.sort((a, b) => {
-            return a.rating - b.rating
+        AllRestaurants.sort((a, b) => {
+            return b.rating - a.rating
         })
 
-        let sample2 = []
+        let Top3 = []
 
-        let sample3 = []
+        let Top3Inner = []
 
         for (let i = 0; i < 3; i++) {
-            sample2.push(sample1.splice(-1, 1))
+            Top3.push(AllRestaurants.splice(0, 1))
         }
 
-        sample3.push(sample2[0][0])
-        sample3.push(sample2[1][0])
-        sample3.push(sample2[2][0])
+        Top3Inner.push(Top3[0][0])
+        Top3Inner.push(Top3[1][0])
+        Top3Inner.push(Top3[2][0])
 
-        console.log(sample2)
+        console.log(Top3)
 
-        console.log(sample3)
+        console.log(Top3Inner)
 
-        return sample3
+        return Top3Inner
         
     }
 
@@ -113,7 +121,7 @@ const HomePage = (props) => {
 
     const showTopThree = currentTop.map((restaurant) => {
         return (
-            <div class="callout secondary cell small-4 medium-4 large-4">
+            <div class="callout cell small-4 medium-4 large-4 tiles">
                 <RestaurantTile
                 key={restaurant.id}
                 restaurant={restaurant}
@@ -130,16 +138,20 @@ const HomePage = (props) => {
     //   }, [])
 
     return (
-        <div>
-            <h2>Welcome to the most Radical Review Roadblock</h2>
-
-            <p>Hey there fellow x-gamer! Have you ever been to restaurant and thought to yourself "man this is totatally not tubular man!" Well we share your pain dude guy man. We want to bring to you a place where you can totally check out the best places and put the poopy buttholes in their place!</p>
-
+        <div class="page grid-container">
 
             <div class="grid-container">
+            <div class="headerText">
+            <h2 class="page header" align="center">Welcome to the most Radical Review Roadblock</h2>
+
+            <p align="center" class="text">Hey there fellow x-gamer! Have you ever been to restaurant and thought to yourself "man this is totatally not tubular man!" Well we share your pain dude guy man. We want to bring to you a place where you can totally check out the best places and put the poopy buttholes in their place!</p>
+            </div>
+            </div>
+
+            <div class="grid-container topThree">
             <div>
-            <h3 align="center">These restaurants rock</h3>
-                <ul class="grid-x grid-margin-x">{showTopThree}</ul>
+            <h3 class="page header" align="center">These restaurants rock</h3>
+                <ul class="grid-x grid-margin-x page">{showTopThree}</ul>
             </div>
             </div>
             
@@ -147,15 +159,11 @@ const HomePage = (props) => {
                 <Link to="/restaurants">If you wanna see more TOTALLY RAD RESTAURANTS See All Restaurants!</Link>
             </div>
 
-            <p>These are the coolest reviews you'll ever see (at least until you throw your hat in the ring you killer you)</p>
+            <p class="text">These are the coolest reviews you'll ever see (at least until you throw your hat in the ring you killer you)</p>
             
-            <div>
+            {/* <div>
                 // Top 3 reviews
-            </div>
-
-            <div>
-                // Link to see all reviews
-            </div>
+            </div> */}
 
         </div>
     )

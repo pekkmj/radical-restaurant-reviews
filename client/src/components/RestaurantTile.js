@@ -6,7 +6,7 @@ const RestaurantTile = (props) => {
   return (
     <div>
       <h3>
-        <Link to={`/restaurants/${id}`}>{name}</Link>
+        <Link to={`/restaurants/${id}`} class="tileLink">{name}</Link>
       </h3>
       <p>{address}, {city}, {state}, {zipCode}</p>
       <p>{description}</p>

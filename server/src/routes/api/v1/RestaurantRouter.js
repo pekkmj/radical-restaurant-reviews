@@ -1,11 +1,10 @@
 import express from "express";
-import { Restaurant } from "../../../models/index.js";
-
 import Objection from "objection";
 const { ValidationError } = Objection;
 
 import cleanUserInput from "../../../services/cleanUserInput.js";
 import RestaurantSerializer from "../../../serializers/RestaurantSerializer.js"
+import { Restaurant } from "../../../models/index.js";
 
 const restaurantRouter = new express.Router()
 
@@ -45,5 +44,7 @@ restaurantRouter.post("/new", async (req, res) => {
     return res.status(500).json({ errors: error })
   }
 })
+
+
 
 export default restaurantRouter

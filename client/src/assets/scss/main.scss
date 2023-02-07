@@ -1,5 +1,6 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
+@import "https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong";
 @include foundation-everything;
 
 // place global css here
@@ -12,4 +13,70 @@
 :root {
   -moz-tab-size: 4;
   tab-size: 4;
+}
+
+.top-bar {
+  background: white;
+}
+
+.top-bar-left {
+  background: white;
+}
+
+.top-bar, .top-bar ul {
+  background: white;
+}
+
+.button {
+  background: black;
+  border-radius: 20px;
+}
+
+.button:hover {
+  background: red;
+}
+
+.tiles {
+  background: rgba(255, 0, 0, 0.8);
+
+  color: antiquewhite;
+
+  border-radius: 20px;
+}
+
+.homeLink {
+  color: black
+}
+
+.homeLink:hover {
+  color:rgba(255, 0, 0, 0.8);
+  text-decoration: underline;
+}
+
+.tileLink:hover {
+  font-family: 'Audiowide', sans-serif;
+  color: yellow;
+  text-decoration: underline;
+}
+
+.tileLink {
+  font-family: 'Audiowide', sans-serif;
+  color: yellow
+}
+
+.page {
+  font-family: 'Audiowide', sans-serif;
+  font-weight: 100;
+}
+
+.grid-container {
+  width: 1000px
+}
+
+.header {
+  font-weight: 500;
+}
+
+.text {
+  font-style: italic;
 }
