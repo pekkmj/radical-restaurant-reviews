@@ -5,10 +5,8 @@ const ReviewTile = ({ review, restaurantId, currentUser }) => {
   const { id, subject, body, rating, userId } = review
 
   let deleteButton = ""
-  if (currentUser){
-    if(currentUser.id === userId){
-      deleteButton = <DeleteButton reviewId={id} restaurantId={restaurantId} />
-    }
+  if (currentUser && currentUser.id === userId){
+    deleteButton = <DeleteButton reviewId={id} restaurantId={restaurantId} />
   }
 
   return (
