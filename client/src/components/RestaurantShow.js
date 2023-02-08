@@ -81,11 +81,11 @@ const RestaurantShow = ({ currentUser, ...props }) => {
     case "list":
       reviewListOrFormComponent = <ReviewList reviews={restaurant.reviews} currentUser={currentUser} />
       reviewListOrFormMessage = "Add a review"
-      break;
+      break
     case "form":
       reviewListOrFormComponent = <NewReviewForm restaurantId={id} currentUser={currentUser} addNewReview={addNewReview} />
       reviewListOrFormMessage = "Back to reviews"
-      break;
+      break
   }
 
   return (
