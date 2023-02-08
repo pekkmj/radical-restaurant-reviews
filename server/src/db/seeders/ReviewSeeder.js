@@ -5,6 +5,7 @@ class ReviewSeeder {
     const chuckECheese = await Restaurant.query().findById(1)
     const chuckECheeseReviewData = [
       {
+        userId: 1,
         subject: "Best restaurant ever",
         body: "Tasty food, good entertainment",
         rating: 5
