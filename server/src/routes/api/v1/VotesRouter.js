@@ -1,5 +1,4 @@
 import express from "express";
-import Objection from "objection";
 
 import { Vote } from "../../../models/index.js";
 

@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import ReviewList from "./ReviewList.js"
 import NewReviewForm from "./NewReviewForm.js"
 import ErrorList from "./layout/ErrorList.js";
-
 import translateServerErrors from "../services/translateServerErrors.js";
 
 const RestaurantShow = ({ currentUser, ...props }) => {
@@ -16,12 +15,7 @@ const RestaurantShow = ({ currentUser, ...props }) => {
   const [errors, setErrors] = useState({})
   const { id } = props.match.params
 
-  // console.log(`Current user in restaurantShow: ${currentUser}`)
-
-  // console.log(restaurant)
   const getRestaurant = async () => {
-    // console.log("running getRestaurant")
-    // console.log(`Current user in getRestaurant: ${currentUser}`)
     try {
       const response = await fetch(`/api/v1/restaurants/${id}/${currentUser?.id}`)
       if (!response.ok) {
@@ -70,15 +64,14 @@ const RestaurantShow = ({ currentUser, ...props }) => {
         } else {
           setErrors({ user: "must be signed in to add a review" })
         }
-        break;
+        break
       case "form":
         setReviewListOrForm("list")
-        break;
+        break
     }
   }
 
   useEffect(() => {
-    // console.log("useEffect")
     getRestaurant()
   }, [currentUser])
 

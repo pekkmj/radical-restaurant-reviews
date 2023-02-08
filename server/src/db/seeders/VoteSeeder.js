@@ -1,8 +1,7 @@
-import { Restaurant, Review, Vote } from "../../models/index.js";
+import { Review, Vote } from "../../models/index.js";
 
 class VoteSeeder {
   static async seed() {
-    const chuckECheese = await Restaurant.query().findById(1)
     const chuckECheeseReviewData = [
       {
         userId: 1,
@@ -12,7 +11,7 @@ class VoteSeeder {
       }
     ]
     const chuckECheeseFirstReview = await Review.query().findOne(chuckECheeseReviewData[0])
-
+    
     const chuckECheeseFirstReviewVoteData = [
       {
         voteValue: 1,
@@ -20,7 +19,6 @@ class VoteSeeder {
         reviewId: 1
       }
     ]
-
     for (const singleVoteData of chuckECheeseFirstReviewVoteData) {
       const currentVote = await Vote.query().findOne(singleVoteData)
       if (!currentVote) {

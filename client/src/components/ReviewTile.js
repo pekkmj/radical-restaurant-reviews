@@ -1,36 +1,21 @@
 import React, { useState, useEffect } from "react";
-import VoteComp from "./VoteComp.js";
 
 const ReviewTile = ({ review, castVote, currentUser }) => {
   const { id, subject, body, rating, votes } = review
   const { score, currentUserVote } = votes
   const [voteState, setVoteState] = useState(null)
-  // console.log(typeof voteState)
-  // console.log(voteState)
-  console.log(review)
-  console.log(`rendering reviewTile id: ${review.id}`)
-  console.log(`current user vote: ${currentUserVote}`)
-  console.log(`vote state: ${voteState}`)
-  console.log("")
-  // console.log(`reviewtile ${review.id} render`)
-  // console.log(review.votes.currentUserVote)
 
   const handleButtonClick = async (event) => {
     if (currentUser) {
       const { currentTarget } = event
       const value = parseInt(currentTarget.value)
 
-      if (voteState) {
-        if (value === voteState) {
-          setVoteState(null)
-        } else {
-          setVoteState(value)
-        }
+      if (voteState & value === voteState) {
+        setVoteState(null)
       } else {
         setVoteState(value)
       }
       await castVote(id, value)
-
     } else {
       alert("You must be signed in to vote")
     }
@@ -42,10 +27,13 @@ const ReviewTile = ({ review, castVote, currentUser }) => {
 
   let upvoteButtonClass = "";
   let downvoteButtonClass = "";
-  if (voteState === 1) {
-    upvoteButtonClass = "success"
-  } else if (voteState === -1) {
-    downvoteButtonClass = "alert"
+  switch (voteState) {
+    case 1:
+      upvoteButtonClass = "success"
+      break
+    case -1:
+      downvoteButtonClass = "alert"
+      break
   }
 
   return (

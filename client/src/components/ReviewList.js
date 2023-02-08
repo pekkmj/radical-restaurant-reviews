@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 
 import ReviewTile from "./ReviewTile.js"
 
 const ReviewList = ({ reviews, currentUser }) => {
-
   const castVote = async (reviewId, voteValue) => {
     try {
       const voteData = {
@@ -18,19 +17,13 @@ const ReviewList = ({ reviews, currentUser }) => {
         }),
         body: JSON.stringify({ voteData: voteData })
       })
-      if (response.ok) {
-        return true
-      } else {
-        return false
+      if (!response.ok) {
+        throw new Error(`${response.status} ${response.statusText}`)
       }
     } catch (error) {
       console.error(`Fetch post error: ${error.name} ${error.message}`)
     }
   }
-
-  useEffect(() => {
-    // console.log("render")
-  }, [])
 
   const reviewTiles = reviews.map(review => {
     return <ReviewTile key={review.id} review={review} currentUser={currentUser} castVote={castVote} />

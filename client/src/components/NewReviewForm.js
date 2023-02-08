@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 
 import ratings from "./constants/ratings.js"
-import translateServerErrors from "../services/translateServerErrors.js"
 import ErrorList from "./layout/ErrorList.js";
 
 const NewReviewForm = ({ restaurantId, currentUser, addNewReview }) => {
