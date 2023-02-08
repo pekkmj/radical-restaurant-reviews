@@ -17,7 +17,6 @@ class VoteSerializer {
     
     return { score: score, currentUserVote: serializedUserVote }
   }
-  
 }
 
 export default VoteSerializer
