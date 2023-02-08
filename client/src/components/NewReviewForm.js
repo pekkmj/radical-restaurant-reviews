@@ -4,7 +4,7 @@ import ratings from "./constants/ratings.js"
 import translateServerErrors from "../services/translateServerErrors.js"
 import ErrorList from "./layout/ErrorList.js";
 
-const NewReviewForm = ({ restaurantId, currentUser, restaurant, setRestaurant, setReviewListOrForm }) => {
+const NewReviewForm = ({ restaurantId, currentUser, addNewReview }) => {
   const emptyNewReview = {
     restaurantId: restaurantId,
     userId: currentUser.id,
@@ -25,35 +25,9 @@ const NewReviewForm = ({ restaurantId, currentUser, restaurant, setRestaurant, s
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    const addedReview = await addNewReview(newReview)
-    if (addedReview) {
-      setRestaurant({ ...restaurant, reviews: [...restaurant.reviews, addedReview] })
-      setReviewListOrForm("list")
-    }
-  }
-
-  const addNewReview = async (formData) => {
-    try {
-      const response = await fetch('/api/v1/reviews', {
-        method: "POST",
-        headers: new Headers({
-          "Content-Type": "application/json"
-        }),
-        body: JSON.stringify({ formData })
-      })
-      if (!response.ok) {
-        if (response.status === 422) {
-          const errorBody = await response.json()
-          const newErrors = translateServerErrors(errorBody.errors)
-          return setErrors(newErrors)
-        }
-        throw new Error(`${response.status} ${response.statusText}`)
-      } else {
-        const body = await response.json()
-        return body.review;
-      }
-    } catch (error) {
-      console.error(`Fetch post error: ${error.name} ${error.message}`)
+    const [reviewAdded, result] = await addNewReview(newReview)
+    if (!reviewAdded) {
+      setErrors(result)
     }
   }
 

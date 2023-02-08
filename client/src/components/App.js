@@ -21,6 +21,7 @@ const App = (props) => {
       setCurrentUser(null)
     }
   }
+  // console.log(`Current user in App.js: ${currentUser}`)
 
   useEffect(() => {
     fetchCurrentUser()
