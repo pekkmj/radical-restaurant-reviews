@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const ReviewTile = ({ review, castVote, currentUser }) => {
-  const { id, subject, body, rating, votes } = review
+  const { id, author, subject, body, rating, votes } = review
   const { score, currentUserVote } = votes
   const [voteState, setVoteState] = useState(null)
 
@@ -39,6 +39,7 @@ const ReviewTile = ({ review, castVote, currentUser }) => {
   return (
     <div className="review-tile">
       <h6>{subject}</h6>
+      <p>{author.username}</p>
       <p>{rating} stars</p>
       <p>{body}</p>
       <p>Score: {score + (voteState ? voteState : 0)}</p>

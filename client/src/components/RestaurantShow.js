@@ -7,10 +7,7 @@ import ErrorList from "./layout/ErrorList.js";
 import translateServerErrors from "../services/translateServerErrors.js";
 
 const RestaurantShow = ({ currentUser, ...props }) => {
-  const emptyRestaurant = {
-    reviews: [{id: 0, votes: {score: 0, currentUserVote: false}}]
-  }
-  const [restaurant, setRestaurant] = useState(emptyRestaurant)
+  const [restaurant, setRestaurant] = useState({})
   const [reviewListOrForm, setReviewListOrForm] = useState("list")
   const [errors, setErrors] = useState({})
   const { id } = props.match.params

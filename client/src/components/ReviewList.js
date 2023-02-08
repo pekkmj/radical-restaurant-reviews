@@ -25,7 +25,7 @@ const ReviewList = ({ reviews, currentUser }) => {
     }
   }
 
-  const reviewTiles = reviews.map(review => {
+  const reviewTiles = reviews?.map(review => {
     return <ReviewTile key={review.id} review={review} currentUser={currentUser} castVote={castVote} />
   })
 
