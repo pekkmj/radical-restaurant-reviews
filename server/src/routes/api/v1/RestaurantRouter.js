@@ -18,8 +18,9 @@ restaurantRouter.get("/", async (req, res) => {
   }
 })
 
-restaurantRouter.get("/:id/:currentUserId", async (req, res) => {
-  const { id, currentUserId } = req.params
+restaurantRouter.get("/:id", async (req, res) => {
+  const { id } = req.params
+  const currentUserId = req.user?.id
 
   try {
     const restaurant = await Restaurant.query().findById(id)

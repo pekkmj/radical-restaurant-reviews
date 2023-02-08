@@ -14,7 +14,7 @@ class VoteSeeder {
     
     const chuckECheeseFirstReviewVoteData = [
       {
-        voteValue: 1,
+        value: 1,
         userId: 1,
         reviewId: 1
       }

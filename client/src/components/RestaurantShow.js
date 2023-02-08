@@ -7,14 +7,14 @@ import ErrorList from "./layout/ErrorList.js";
 import translateServerErrors from "../services/translateServerErrors.js";
 
 const RestaurantShow = ({ currentUser, ...props }) => {
-  const [restaurant, setRestaurant] = useState({})
+  const [restaurant, setRestaurant] = useState({reviews: []})
   const [reviewListOrForm, setReviewListOrForm] = useState("list")
   const [errors, setErrors] = useState({})
   const { id } = props.match.params
 
   const getRestaurant = async () => {
     try {
-      const response = await fetch(`/api/v1/restaurants/${id}/${currentUser?.id}`)
+      const response = await fetch(`/api/v1/restaurants/${id}`)
       if (!response.ok) {
         throw new Error(`${response.status} (${response.statusText})`)
       }
@@ -70,7 +70,7 @@ const RestaurantShow = ({ currentUser, ...props }) => {
 
   useEffect(() => {
     getRestaurant()
-  }, [currentUser])
+  }, [])
 
   let reviewListOrFormComponent
   let reviewListOrFormMessage

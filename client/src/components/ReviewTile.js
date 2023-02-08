@@ -3,14 +3,13 @@ import React, { useState, useEffect } from "react";
 const ReviewTile = ({ review, castVote, currentUser }) => {
   const { id, author, subject, body, rating, votes } = review
   const { score, currentUserVote } = votes
-  const [voteState, setVoteState] = useState(null)
+  const [voteState, setVoteState] = useState(currentUserVote.value)
 
-  const handleButtonClick = async (event) => {
+  const handleButtonClick = async ({ currentTarget }) => {
     if (currentUser) {
-      const { currentTarget } = event
       const value = parseInt(currentTarget.value)
 
-      if (voteState & value === voteState) {
+      if (value === voteState) {
         setVoteState(null)
       } else {
         setVoteState(value)
@@ -20,10 +19,6 @@ const ReviewTile = ({ review, castVote, currentUser }) => {
       alert("You must be signed in to vote")
     }
   }
-
-  useEffect(() => {
-    setVoteState(currentUserVote.voteValue)
-  }, [review])
 
   let upvoteButtonClass = "";
   let downvoteButtonClass = "";

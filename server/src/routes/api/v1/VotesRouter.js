@@ -10,10 +10,10 @@ votesRouter.post('/', async (req, res) => {
   try {
     const currentUserVote = await Vote.query().findOne({ userId: voteData.userId, reviewId: voteData.reviewId })
     if (currentUserVote) {
-      if (currentUserVote.voteValue === voteData.voteValue) {
+      if (currentUserVote.value === voteData.value) {
         await Vote.query().deleteById(currentUserVote.id)
       } else {
-        await Vote.query().patch({ voteValue: voteData.voteValue }).where("id", "=", currentUserVote.id)
+        await Vote.query().patch({ value: voteData.value }).where("id", "=", currentUserVote.id)
       }
     } else {
       await Vote.query().insert(voteData)

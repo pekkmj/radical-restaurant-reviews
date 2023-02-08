@@ -1,6 +1,6 @@
 class VoteSerializer {
   static getSummary(vote) {
-    const allowedAttributes = ['voteValue']
+    const allowedAttributes = ['value']
 
     let serializedVote = {}
     for (const attribute of allowedAttributes) {
@@ -12,8 +12,8 @@ class VoteSerializer {
 
   static getTotalSummary(votes, currentUserId) {
     const currentUserVote = votes.find(vote => vote.userId === currentUserId)
-    const serializedUserVote = currentUserVote? VoteSerializer.getSummary(currentUserVote) : false
-    const score = votes.reduce((totalScore, currentVote) => totalScore + currentVote.voteValue, 0) - (serializedUserVote? serializedUserVote.voteValue : 0)
+    const serializedUserVote = currentUserVote ? VoteSerializer.getSummary(currentUserVote) : false
+    const score = votes.reduce((totalScore, currentVote) => totalScore + currentVote.value, 0) - (serializedUserVote? serializedUserVote.value : 0)
     
     return { score: score, currentUserVote: serializedUserVote }
   }

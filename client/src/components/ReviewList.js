@@ -3,12 +3,12 @@ import React from "react"
 import ReviewTile from "./ReviewTile.js"
 
 const ReviewList = ({ reviews, currentUser }) => {
-  const castVote = async (reviewId, voteValue) => {
+  const castVote = async (reviewId, value) => {
     try {
       const voteData = {
         reviewId: reviewId,
         userId: currentUser.id,
-        voteValue: voteValue,
+        value: value,
       }
       const response = await fetch('/api/v1/votes', {
         method: "POST",
@@ -25,7 +25,7 @@ const ReviewList = ({ reviews, currentUser }) => {
     }
   }
 
-  const reviewTiles = reviews?.map(review => {
+  const reviewTiles = reviews.map(review => {
     return <ReviewTile key={review.id} review={review} currentUser={currentUser} castVote={castVote} />
   })
 

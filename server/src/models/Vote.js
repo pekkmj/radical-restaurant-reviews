@@ -8,7 +8,7 @@ class Vote extends Model {
   static get jsonSchema() {
     return {
       type: "object",
-      required: ["voteValue"],
+      required: ["value"],
       properties: {
         voteValue: { type: ["integer", "string"] }
       }
@@ -31,8 +31,8 @@ class Vote extends Model {
         relation: Model.BelongsToOneRelation,
         modelClass: User,
         join: {
-          from: "votes.UserId",
-          to: "Users.id"
+          from: "votes.userId",
+          to: "users.id"
         }
       }
     }
