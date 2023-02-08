@@ -1,13 +1,22 @@
 import React from "react";
+import DeleteButton from "./DeleteReview";
 
-const ReviewTile = ({ review }) => {
-  const { subject, body, rating } = review
+const ReviewTile = ({ review, restaurantId, currentUser }) => {
+  const { id, subject, body, rating, userId } = review
+
+  let deleteButton = ""
+  if (currentUser){
+    if(currentUser.id === userId){
+      deleteButton = <DeleteButton reviewId={id} restaurantId={restaurantId} />
+    }
+  }
 
   return (
     <div className="review-tile">
       <h6>{subject}</h6>
       <p>{rating} stars</p>
       <p>{body}</p>
+      {deleteButton}
     </div>
   )
 }

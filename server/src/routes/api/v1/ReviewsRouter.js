@@ -22,4 +22,13 @@ reviewsRouter.post('/', async (req, res) => {
   }
 })
 
+reviewsRouter.delete("/:id", async (req,res)=>{
+  try {
+    await Review.query().findById(req.params.id).delete()
+    return res.status(200).json()
+  } catch (err) {
+    return res.status(500).json({errors: err})
+  }
+})
+
 export default reviewsRouter
