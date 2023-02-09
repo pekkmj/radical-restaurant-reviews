@@ -15,11 +15,6 @@
   tab-size: 4;
 }
 
-// @font-face {
-//   font-family: 'Audiowide', 'sans-serif';
-//   src: url(https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong);
-// }
-
 .top-bar {
   background: white;
 }
@@ -43,9 +38,7 @@
 
 .tiles {
   background: rgba(255, 0, 0, 0.8);
-
   color: antiquewhite;
-
   border-radius: 20px;
 }
 
@@ -65,17 +58,12 @@
 }
 
 .tileLink {
-  // font-family: 'Audiowide', sans-serif;
   color: yellow;
   font-family: 'Audiowide', serif;
-  
 }
 
 .page {
-  // font-family: 'Audiowide', sans-serif;
-  // font-weight: 100;
   font-family: 'Audiowide', 'sans-serif';
-  
 }
 
 .grid-container {

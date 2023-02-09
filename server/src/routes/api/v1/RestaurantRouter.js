@@ -18,10 +18,10 @@ restaurantRouter.get("/all", async (req, res) => {
   }
 })
 
-restaurantRouter.get("/top3", async (req, res) => {
+restaurantRouter.get("/top-three", async (req, res) => {
   try {
     const restaurants = await Restaurant.query()
-    const serializedRestaurants = await RestaurantSerializer.getTop3Summaries(restaurants)
+    const serializedRestaurants = await RestaurantSerializer.getTopThreeSummaries(restaurants)
     return res.status(200).json({ restaurants: serializedRestaurants })
   } catch (error) {
     return res.status(500).json({ errors: error })

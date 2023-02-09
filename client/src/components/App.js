@@ -31,10 +31,11 @@ const App = (props) => {
     <Router>
       <TopBar user={currentUser} />
       <Switch>
-        <Route 
-        exact path="/" component={HomePage} 
+        <Route exact path="/" component={HomePage} 
         />
-        <Route exact path="/restaurants" component={RestaurantList} />
+        <Route 
+        exact path="/restaurants" component={RestaurantList} 
+        />
         <Route exact path="/restaurants/:id"
           render={(props) => <RestaurantShow {...props} currentUser={currentUser} />}
         />

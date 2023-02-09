@@ -19,8 +19,8 @@ const RestaurantTile = ({ restaurant }) => {
       <h3>
         <Link to={`/restaurants/${id}`} class="tileLink">{name}</Link>
       </h3>
-      <p>{address}, {city}, {state}, {zipCode}</p>
-      <p>{description}</p>
+        <p>{address}, {city}, {state}, {zipCode}</p>
+        <p>{description}</p>
       </div>
     </div>
   )
