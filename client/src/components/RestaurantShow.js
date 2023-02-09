@@ -13,7 +13,6 @@ const RestaurantShow = ({ currentUser, ...props }) => {
   const [reviewListOrForm, setReviewListOrForm] = useState("list")
   const [errors, setErrors] = useState({})
   const { id } = props.match.params
-  
   const getRestaurant = async () => {
 
     try {

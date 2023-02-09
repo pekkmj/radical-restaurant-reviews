@@ -4,7 +4,7 @@ import ReviewTile from "./ReviewTile.js"
 
 const ReviewList = ({ reviews }) => {
 
-  const reviewTiles = reviews.map(review => {
+  const reviewTiles = reviews?.map(review => {
     return <ReviewTile key={review.id} review={review} />
   })
 
