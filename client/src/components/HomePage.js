@@ -5,9 +5,9 @@ import { Link } from "react-router-dom"
 const HomePage = (props) => {
     const [restaurants, setRestaurants] = useState([])
 
-    const getRestaurants = async () => {
+    const getTop3Restaurants = async () => {
         try {
-            const response = await fetch("/api/v1/restaurants")
+            const response = await fetch("/api/v1/restaurants/top3")
             if (!response.ok) {
                 throw new Error(`${response.status} (${response.statusText})`)
             }
@@ -19,28 +19,28 @@ const HomePage = (props) => {
     }
 
     useEffect(() => {
-        getRestaurants()
+        getTop3Restaurants()
     }, [])
 
-    const top3Restaurants = () => {
-        let allRestaurants = restaurants
-        allRestaurants.sort((a, b) => {
-            return b.averageRating - a.averageRating
-        })
+    // const top3Restaurants = () => {
+    //     let allRestaurants = restaurants
+    //     allRestaurants.sort((a, b) => {
+    //         return b.averageRating - a.averageRating
+    //     })
 
-        let top3 = []
-        if (allRestaurants.length > 3) {
-            for (let i = 0; i < 3; i++) {
-                top3.push(allRestaurants[i])
-            } 
-        } else {
-            top3 = allRestaurants
-        }
+    //     let top3 = []
+    //     if (allRestaurants.length > 3) {
+    //         for (let i = 0; i < 3; i++) {
+    //             top3.push(allRestaurants[i])
+    //         } 
+    //     } else {
+    //         top3 = allRestaurants
+    //     }
 
-        return top3
-    }
+    //     return top3
+    // }
 
-    const showTopThree = top3Restaurants().map((restaurant) => {
+    const showTopThree = restaurants.map((restaurant) => {
         return (
             <RestaurantTile
                 key={restaurant.id}

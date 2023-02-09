@@ -1,6 +1,6 @@
 @import "./foundation/settings";
 @import "~foundation-sites/scss/foundation";
-@import "https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong";
+@import url(https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong);
 @include foundation-everything;
 
 // place global css here
@@ -14,6 +14,11 @@
   -moz-tab-size: 4;
   tab-size: 4;
 }
+
+// @font-face {
+//   font-family: 'Audiowide', 'sans-serif';
+//   src: url(https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong);
+// }
 
 .top-bar {
   background: white;
@@ -54,19 +59,23 @@
 }
 
 .tileLink:hover {
-  font-family: 'Audiowide', sans-serif;
+  font-family: 'Audiowide', serif;
   color: yellow;
   text-decoration: underline;
 }
 
 .tileLink {
-  font-family: 'Audiowide', sans-serif;
-  color: yellow
+  // font-family: 'Audiowide', sans-serif;
+  color: yellow;
+  font-family: 'Audiowide', serif;
+  
 }
 
 .page {
-  font-family: 'Audiowide', sans-serif;
-  font-weight: 100;
+  // font-family: 'Audiowide', sans-serif;
+  // font-weight: 100;
+  font-family: 'Audiowide', 'sans-serif';
+  
 }
 
 .grid-container {

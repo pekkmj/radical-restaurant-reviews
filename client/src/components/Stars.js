@@ -10,12 +10,12 @@ const Stars = ({ stars }) => {
     for (let i = 0; i < 5; i++) {
         if (starNumber > i) {
             if (starNumber === i + 0.5) {
-                icons.push(<FontAwesomeIcon icon={halfStar} />)
+                icons.push(<FontAwesomeIcon key={i} icon={halfStar} />)
             } else {
-                icons.push(<FontAwesomeIcon icon={solidStar} />)
+                icons.push(<FontAwesomeIcon key={i} icon={solidStar} />)
             }
         } else {
-            icons.push(<FontAwesomeIcon icon={emptyStar} />)
+            icons.push(<FontAwesomeIcon key={i} icon={emptyStar} />)
         }
     }
 

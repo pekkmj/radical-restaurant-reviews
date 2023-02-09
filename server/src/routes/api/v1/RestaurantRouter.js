@@ -8,10 +8,20 @@ import { Restaurant } from "../../../models/index.js";
 
 const restaurantRouter = new express.Router()
 
-restaurantRouter.get("/", async (req, res) => {
+restaurantRouter.get("/all", async (req, res) => {
   try {
     const restaurants = await Restaurant.query()
     const serializedRestaurants = await RestaurantSerializer.getSummaries(restaurants)
+    return res.status(200).json({ restaurants: serializedRestaurants })
+  } catch (error) {
+    return res.status(500).json({ errors: error })
+  }
+})
+
+restaurantRouter.get("/top3", async (req, res) => {
+  try {
+    const restaurants = await Restaurant.query()
+    const serializedRestaurants = await RestaurantSerializer.getTop3Summaries(restaurants)
     return res.status(200).json({ restaurants: serializedRestaurants })
   } catch (error) {
     return res.status(500).json({ errors: error })

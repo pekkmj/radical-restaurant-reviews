@@ -10,7 +10,7 @@ const RestaurantList = (props) => {
 
   const getRestaurants = async () => {
     try {
-      const response = await fetch("/api/v1/restaurants")
+      const response = await fetch("/api/v1/restaurants/all")
       if (!response.ok) {
         throw new Error(`${response.status} (${response.statusText})`)
       }
