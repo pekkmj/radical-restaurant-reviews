@@ -7,7 +7,7 @@ import translateServerErrors from "../services/translateServerErrors.js"
 const RestaurantList = (props) => {
   const [restaurants, setRestaurants] = useState([])
   const [errors, setErrors] = useState({})
-
+  
   const getRestaurants = async () => {
     try {
       const response = await fetch("/api/v1/restaurants")
