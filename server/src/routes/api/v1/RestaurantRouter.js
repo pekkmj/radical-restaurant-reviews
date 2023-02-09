@@ -20,10 +20,11 @@ restaurantRouter.get("/", async (req, res) => {
 
 restaurantRouter.get("/:id", async (req, res) => {
   const { id } = req.params
+  const currentUserId = req.user?.id
 
   try {
     const restaurant = await Restaurant.query().findById(id)
-    const serializedRestaurant = await RestaurantSerializer.getDetails(restaurant)
+    const serializedRestaurant = await RestaurantSerializer.getDetails(restaurant, currentUserId)
     return res.status(200).json({ restaurant: serializedRestaurant })
   } catch (error) {
     return res.status(500).json({ errors: error })
@@ -44,7 +45,5 @@ restaurantRouter.post("/new", async (req, res) => {
     return res.status(500).json({ errors: error })
   }
 })
-
-
 
 export default restaurantRouter

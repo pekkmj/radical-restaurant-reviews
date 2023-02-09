@@ -2,5 +2,6 @@
 const User = require("./User.js")
 const Restaurant = require("./Restaurant.js")
 const Review = require("./Review.js")
+const Vote = require("./Vote.js") 
 
-module.exports = {User, Restaurant, Review};
+module.exports = {User, Restaurant, Review, Vote};
