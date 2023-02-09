@@ -34,11 +34,9 @@ const App = (props) => {
         <Route exact path="/" component={HomePage} 
         />
         <Route 
-        exact path="/restaurants" component={RestaurantList} 
-        />
+        exact path="/restaurants" component={RestaurantList} />
         <Route exact path="/restaurants/:id"
-          render={(props) => <RestaurantShow {...props} currentUser={currentUser} />}
-        />
+          render={(props) => <RestaurantShow {...props} currentUser={currentUser} />} />
         <Route exact path="/users/new" component={RegistrationForm} />
         <Route exact path="/user-sessions/new" component={SignInForm} />
       </Switch>
