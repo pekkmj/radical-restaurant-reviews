@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 
 const DeleteButton = (props) =>{
-  const [shouldRedirect, setShouldRedirect] = useState(false)
-  const { reviewId, restaurantId } = props 
-
+  const { reviewId, reviews, restaurant, setRestaurant } = props
+  
   const deleteReview = async () => {
     try {
         const response = await fetch (`/api/v1/reviews/${reviewId}`, {
@@ -17,15 +16,15 @@ const DeleteButton = (props) =>{
         const error = new Error(errorMessage)
         throw(error)
       }
-      setShouldRedirect(true)
-      return { status: "ok" }
+      const returnedReviews = reviews.filter(review => review.id !== reviewId)
+      setRestaurant({
+        ...restaurant,
+        reviews: returnedReviews
+      })
+      return { message: "reeview has been deleted" }
     } catch(err) {
        console.error(`Error in fetch: ${err.message}`)
     }
-  }
-
-  if (shouldRedirect) {
-    location.href=`/restaurants/${restaurantId}`
   }
 
   return (

@@ -1,12 +1,12 @@
 import React from "react";
 import DeleteButton from "./DeleteReview";
 
-const ReviewTile = ({ review, restaurantId, currentUser }) => {
+const ReviewTile = ({ review, currentUser, reviews, restaurant, setRestaurant }) => {
   const { id, subject, body, rating, userId } = review
 
   let deleteButton = ""
   if (currentUser && currentUser.id === userId){
-    deleteButton = <DeleteButton reviewId={id} restaurantId={restaurantId} />
+    deleteButton = <DeleteButton reviewId={id} reviews={reviews} restaurant={restaurant} setRestaurant={setRestaurant}/>
   }
 
   return (
