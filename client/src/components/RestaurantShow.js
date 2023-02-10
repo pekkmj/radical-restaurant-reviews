@@ -79,11 +79,20 @@ const RestaurantShow = ({ currentUser, ...props }) => {
   let reviewListOrFormMessage
   switch (reviewListOrForm) {
     case "list":
-      reviewListOrFormComponent = <ReviewList reviews={restaurant.reviews} currentUser={currentUser} />
+      reviewListOrFormComponent = <ReviewList 
+        reviews={restaurant.reviews}
+        currentUser={currentUser}
+        restaurant={restaurant}
+        setRestaurant={setRestaurant}
+      />
       reviewListOrFormMessage = "Add a review"
       break
     case "form":
-      reviewListOrFormComponent = <NewReviewForm restaurantId={id} currentUser={currentUser} addNewReview={addNewReview} />
+      reviewListOrFormComponent = <NewReviewForm
+        restaurantId={id}
+        currentUser={currentUser}
+        addNewReview={addNewReview}
+      />
       reviewListOrFormMessage = "Back to reviews"
       break
   }

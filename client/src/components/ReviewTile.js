@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
+import DeleteButton from "./DeleteReview"
 
-import Stars from "./Stars.js";
-
-const ReviewTile = ({ review, castVote, currentUser }) => {
-  const { id, author, subject, body, rating, votes } = review
+const ReviewTile = ({ review, castVote, currentUser, reviews, restaurant, setRestaurant }) => {
+  const { id, author, subject, body, rating, votes, userId } = review
   const { score, currentUserVote } = votes
-  const [voteState, setVoteState] = useState(currentUserVote.value || 0)
+  const [voteState, setVoteState] = useState(currentUserVote.value)
 
   const handleButtonClick = async ({ currentTarget }) => {
     if (currentUser) {
@@ -40,8 +39,9 @@ const ReviewTile = ({ review, castVote, currentUser }) => {
       <Stars stars={rating} />
       <p>{body}</p>
       <p>Score: {score + voteState}</p>
-      <button className={`vote-button upvote-button ${upvoteButtonClass}`} value="1" onClick={handleButtonClick}>Upvote</button>
-      <button className={`vote-button downvote-button ${downvoteButtonClass}`} value="-1" onClick={handleButtonClick}>Downvote</button>
+      <button className={`button ${upvoteButtonClass}`} value="1" onClick={handleButtonClick}>Upvote</button>
+      <button className={`button ${downvoteButtonClass}`} value="-1" onClick={handleButtonClick}>Downvote</button>
+      {deleteButton}
     </div>
   )
 }
