@@ -54,7 +54,7 @@ const RestaurantList = (props) => {
 
   const restaurantList = restaurants.map((restaurant) => {
     return (
-      <div class="callout cell small-12 medium-12 large-12 tiles">
+      <div class="callout cell tiles">
         <RestaurantTile
           key={restaurant.id}
           restaurant={restaurant}
@@ -64,13 +64,12 @@ const RestaurantList = (props) => {
   })
 
   return (
-
     <div class="grid-container">
       <h1 className="page">Radical Reviews</h1>
-      <div class="grid-x grid-margin-x page">
+      <div>
         {restaurantList}
       </div>
-      <div class="callout cell small-12 medium-12 large-12 tiles">
+      <div class="callout cell tiles">
         <NewRestaurantForm addRestaurant={addRestaurant} errors={errors} />
       </div>
     </div>

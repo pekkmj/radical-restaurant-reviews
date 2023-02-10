@@ -93,10 +93,10 @@ const RestaurantShow = ({ currentUser, ...props }) => {
       <Link to="/restaurants" className="button">Back to restaurants</Link>
       <div class="grid-container">
         <div class="grid-x grid-margin-x page">
-          <div class="callout cell small-12 medium-12 large-12 tiles">
+          <div class="callout cell tiles">
             <RestaurantTile restaurant={restaurant} />
           </div>
-          <div class="callout cell small-12 medium-12 large-12 tiles">
+          <div class="callout cell tiles">
             <ErrorList errors={errors} />
             <button className="button" onClick={switchListOrForm}>{reviewListOrFormMessage}</button>
             {reviewListOrFormComponent}

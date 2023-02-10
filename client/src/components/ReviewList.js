@@ -36,7 +36,7 @@ const ReviewList = ({ reviews, currentUser }) => {
   return (
     <div>
       <h3 className="page">Reviews:</h3>
-      <div class="grid-y grid-margin-y page">
+      <div class="grid-x grid-margin-x page">
         {reviewTiles}
       </div>
     </div>
