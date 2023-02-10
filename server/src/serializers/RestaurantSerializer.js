@@ -19,22 +19,23 @@ class RestaurantSerializer {
     return await Promise.all(restaurants.map(restaurant => RestaurantSerializer.getSummary(restaurant)))
   }
 
-  static async getTop3Summaries(restaurants) {
+  static async getTopThreeSummaries(restaurants) {
     const allSummaries = await RestaurantSerializer.getSummaries(restaurants)
     allSummaries.sort((a, b) => {
       return b.averageRating - a.averageRating
     })
-    let top3Summaries = []
+    let topThreeSummaries = []
     if (allSummaries.length > 3) {
       for (let i = 0; i < 3; i++) {
-        top3Summaries.push(allSummaries[i])
+        topThreeSummaries.push(allSummaries[i])
       }
     } else {
-      top3Summaries = allSummaries
+      topThreeSummaries = allSummaries
     }
-    return top3Summaries
+    return topThreeSummaries
   }
-  static async getDetails(restaurant) {
+
+  static async getDetails(restaurant, currentUserId) {
     const serializedRestaurant = await RestaurantSerializer.getSummary(restaurant)
     const relatedReviews = await restaurant.$relatedQuery("reviews")
     serializedRestaurant.reviews = await Promise.all(relatedReviews.map(review => {

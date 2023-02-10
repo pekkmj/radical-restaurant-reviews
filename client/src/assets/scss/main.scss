@@ -15,11 +15,6 @@
   tab-size: 4;
 }
 
-// @font-face {
-//   font-family: 'Audiowide', 'sans-serif';
-//   src: url(https://fonts.googleapis.com/css?family=Audiowide|Sofia|Trirong);
-// }
-
 .top-bar {
   background: white;
 }
@@ -41,12 +36,48 @@
   background: red;
 }
 
+.vote-button {
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+}
+
+.upvote-button {
+  background: purple;
+}
+
+.upvote-button:hover {
+  background: green;
+}
+
+.upvote-button-clicked {
+  background: green;
+}
+
+.downvote-button {
+  background: purple;
+}
+
+.downvote-button:hover {
+  background: red;
+}
+
+.downvote-button-clicked {
+  background: red;
+}
+
+.button:focus {
+  background-color: black;
+}
+
 .tiles {
   background: rgba(255, 0, 0, 0.8);
-
   color: antiquewhite;
-
   border-radius: 20px;
+}
+
+.review-tile {
+  background: rgba(38, 0, 33, 0.8);
 }
 
 .homeLink {
@@ -59,23 +90,19 @@
 }
 
 .tileLink:hover {
-  font-family: 'Audiowide', serif;
+  font-family: 'Audiowide', sans-serif;
   color: yellow;
   text-decoration: underline;
 }
 
 .tileLink {
-  // font-family: 'Audiowide', sans-serif;
+  font-family: 'Audiowide', sans-serif;
   color: yellow;
-  font-family: 'Audiowide', serif;
-  
 }
 
 .page {
-  // font-family: 'Audiowide', sans-serif;
-  // font-weight: 100;
-  font-family: 'Audiowide', 'sans-serif';
-  
+  font-family: 'Audiowide', sans-serif;
+  font-weight: 100;  
 }
 
 .grid-container {
@@ -90,13 +117,11 @@
   font-style: italic;
 }
 
-.rateString {
-  position: relative;
-  left: 180px;
-  bottom: 25px;
+body {
+  font-family: 'Audiowide', sans-serif;
 }
 
-.tileBody {
-  position: relative;
-  bottom: 20px;
+i {
+  display: block;
+  margin-bottom: 20px;
 }

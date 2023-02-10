@@ -39,7 +39,7 @@ const NewReviewForm = ({ restaurantId, currentUser, addNewReview }) => {
   return (
     <>
       <ErrorList errors={errors} />
-      <h3>Add a review:</h3>
+      <h3 className="page">Add a review:</h3>
       <form onSubmit={handleSubmit}>
         <label htmlFor="subject">
           Subject:
@@ -55,7 +55,7 @@ const NewReviewForm = ({ restaurantId, currentUser, addNewReview }) => {
           Rating:
           <select name="rating" onChange={handleInputChange} value={newReview.rating}>
             {ratingOptions}
-          </select>stars
+          </select>
         </label>
 
         <input type="submit" className="button" />
