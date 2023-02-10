@@ -3,7 +3,7 @@ import Objection from "objection";
 const { ValidationError } = Objection;
 
 import cleanUserInput from "../../../services/cleanUserInput.js";
-import { Review } from "../../../models/index.js";
+import { Review, User } from "../../../models/index.js";
 import ReviewSerializer from "../../../serializers/ReviewSerializer.js";
 
 const reviewsRouter = new express.Router()
@@ -25,10 +25,16 @@ reviewsRouter.post('/', async (req, res) => {
 })
 
 reviewsRouter.delete("/:id", async (req,res)=>{
+  const { id } = req.user
   try {
-    await Review.query().findById(req.params.id).delete()
-
-    return res.status(204).json({ message: "review has been deleted!" })
+  const { userId } = await Review.query().findById(req.params.id) 
+    if(userId === id){
+      await Review.query().findById(req.params.id).delete()
+      return res.status(204).json({ message: "review has been deleted!" })
+    }
+    else {
+      return res.status(200)
+    }
   } catch (err) {
     return res.status(500).json({errors: err})
   }

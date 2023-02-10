@@ -21,18 +21,15 @@ const DeleteButton = (props) =>{
         ...restaurant,
         reviews: returnedReviews
       })
-      return { message: "reeview has been deleted" }
     } catch(err) {
        console.error(`Error in fetch: ${err.message}`)
     }
   }
 
   return (
-    <>
       <button type="button" className="button" onClick={deleteReview}>
         Delete Review
       </button>
-    </>
   )
 }
 

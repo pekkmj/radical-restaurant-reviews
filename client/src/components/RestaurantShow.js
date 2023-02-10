@@ -19,7 +19,6 @@ const RestaurantShow = ({ currentUser, ...props }) => {
         throw new Error(`${response.status} (${response.statusText})`)
       }
       const body = await response.json()
-      console.log(body.restaurant) 
       setRestaurant(body.restaurant)
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
@@ -77,11 +76,20 @@ const RestaurantShow = ({ currentUser, ...props }) => {
   let reviewListOrFormMessage
   switch (reviewListOrForm) {
     case "list":
-      reviewListOrFormComponent = <ReviewList reviews={restaurant.reviews} currentUser={currentUser} restaurant={restaurant} setRestaurant={setRestaurant}/>
+      reviewListOrFormComponent = <ReviewList 
+        reviews={restaurant.reviews}
+        currentUser={currentUser}
+        restaurant={restaurant}
+        setRestaurant={setRestaurant}
+      />
       reviewListOrFormMessage = "Add a review"
       break
     case "form":
-      reviewListOrFormComponent = <NewReviewForm restaurantId={id} currentUser={currentUser} addNewReview={addNewReview} />
+      reviewListOrFormComponent = <NewReviewForm
+        restaurantId={id}
+        currentUser={currentUser}
+        addNewReview={addNewReview}
+      />
       reviewListOrFormMessage = "Back to reviews"
       break
   }

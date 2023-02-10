@@ -6,9 +6,14 @@ const ReviewTile = ({ review, castVote, currentUser, reviews, restaurant, setRes
   const { score, currentUserVote } = votes
   const [voteState, setVoteState] = useState(currentUserVote.value)
 
-  let deleteButton = ""
+  let deleteButton;
   if (currentUser && currentUser.id === userId){
-    deleteButton = <DeleteButton reviewId={id} reviews={reviews} restaurant={restaurant} setRestaurant={setRestaurant}/>
+    deleteButton = <DeleteButton
+      reviewId={id}
+      reviews={reviews}
+      restaurant={restaurant}
+      setRestaurant={setRestaurant}
+    />
   }
 
   const handleButtonClick = async ({ currentTarget }) => {
