@@ -37,7 +37,7 @@ const HomePage = (props) => {
                 <div class="headerText">
                     <h2 class="page header" align="center">Welcome to the most Radical Review Roadblock</h2>
 
-                    <p align="center" class="text">Hey there fellow x-gamer! Have you ever been to a restaurant and thought to yourself "woah this is totatally not tubular!" Well we share your pain. We want to bring to you a place where you can totally check out the best places and put the not so great restaurants in their place!</p>
+                    <p align="center" class="text">Hey there fellow x-gamer! Have you ever been to a restaurant and thought to yourself "woah this is totally not tubular!" Well we share your pain. We want to bring to you a place where you can totally check out the best places and put the not so great restaurants in their place!</p>
                 </div>
             </div>
 
