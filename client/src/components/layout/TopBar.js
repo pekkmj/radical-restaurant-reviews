@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import SignOutButton from "../authentication/SignOutButton";
 
+import logoNoText from '../../assets/images/logo-no-text.png';
+
 const TopBar = ({ user }) => {
   const unauthenticatedListItems = [
     <li key="sign-in">
@@ -24,7 +26,7 @@ const TopBar = ({ user }) => {
     <div className="top-bar">
       <div className="top-bar-left">
         <ul className="menu">
-    
+          <img id="topbar-logo" src={logoNoText} />
           <li>
             <Link to="/" className="homeLink">Radical Reviews</Link>
           </li>

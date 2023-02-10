@@ -40,9 +40,6 @@
   border-radius: 20px;
   color: white;
   padding: 10px;
-}
-
-.upvote-button {
   background: purple;
 }
 
@@ -52,10 +49,6 @@
 
 .upvote-button-clicked {
   background: green;
-}
-
-.downvote-button {
-  background: purple;
 }
 
 .downvote-button:hover {
@@ -78,15 +71,6 @@
 
 .review-tile {
   background: rgba(38, 0, 33, 0.8);
-}
-
-.homeLink {
-  color: black
-}
-
-.homeLink:hover {
-  color:rgba(255, 0, 0, 0.8);
-  text-decoration: underline;
 }
 
 .tileLink:hover {
@@ -124,4 +108,25 @@ body {
 i {
   display: block;
   margin-bottom: 20px;
+}
+
+#topbar-logo {
+  max-width: 50px;
+  max-height: 35px;
+}
+
+.homeLink {
+  color: black;
+  padding-left: 0%;
+}
+
+.homeLink:hover {
+  color:rgba(255, 0, 0, 0.8);
+  text-decoration: underline;
+}
+
+#bottom-logo {
+  margin: 30px 0px;
+  max-width: 250px;
+  max-height: 175px;
 }

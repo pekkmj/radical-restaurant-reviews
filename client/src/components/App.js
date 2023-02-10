@@ -31,13 +31,27 @@ const App = (props) => {
     <Router>
       <TopBar user={currentUser} />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/restaurants" component={RestaurantList} />
-        <Route exact path="/restaurants/:id"
+        <Route
+          exact
+          path="/"
+          component={HomePage} />
+        <Route
+          exact
+          path="/restaurants"
+          component={RestaurantList} />
+        <Route
+          exact
+          path="/restaurants/:id"
           render={(props) => <RestaurantShow {...props} currentUser={currentUser} />}
         />
-        <Route exact path="/users/new" component={RegistrationForm} />
-        <Route exact path="/user-sessions/new" component={SignInForm} />
+        <Route
+          exact
+          path="/users/new"
+          component={RegistrationForm} />
+        <Route
+          exact
+          path="/user-sessions/new"
+          component={SignInForm} />
       </Switch>
     </Router>
   );
