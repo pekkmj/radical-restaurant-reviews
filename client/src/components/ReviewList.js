@@ -27,9 +27,8 @@ const ReviewList = ({ reviews, currentUser, restaurant, setRestaurant }) => {
 
   const reviewTiles = reviews.map(review => {
     return (
-      <div class="callout cell tiles review-tile">
+      <div key={review.id} className="callout cell tiles review-tile">
         <ReviewTile
-          key={review.id}
           review={review}
           currentUser={currentUser}
           castVote={castVote}
@@ -44,7 +43,7 @@ const ReviewList = ({ reviews, currentUser, restaurant, setRestaurant }) => {
   return (
     <div>
       <h3 className="page">Reviews:</h3>
-      <div class="grid-x grid-margin-x page">
+      <div className="grid-x grid-margin-x page">
         {reviewTiles}
       </div>
     </div>

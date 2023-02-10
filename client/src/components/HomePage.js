@@ -26,8 +26,8 @@ const HomePage = (props) => {
 
   const showTopThree = restaurants.map((restaurant) => {
     return (
-      <div class="callout cell small-4 medium-4 large-4 tiles">
-        <RestaurantTile key={restaurant.id} restaurant={restaurant} />
+      <div key={restaurant.id} class="callout cell small-4 medium-4 large-4 tiles">
+        <RestaurantTile restaurant={restaurant} />
       </div>
     )
   })

@@ -100,12 +100,12 @@ const RestaurantShow = ({ currentUser, ...props }) => {
   return (
     <div>
       <Link to="/restaurants" className="button">Back to restaurants</Link>
-      <div class="grid-container">
-        <div class="grid-x grid-margin-x page">
-          <div class="callout cell tiles">
+      <div className="grid-container">
+        <div className="grid-x grid-margin-x page">
+          <div className="callout cell tiles">
             <RestaurantTile restaurant={restaurant} />
           </div>
-          <div class="callout cell tiles">
+          <div className="callout cell tiles">
             <ErrorList errors={errors} />
             <button className="button" onClick={switchListOrForm}>{reviewListOrFormMessage}</button>
             {reviewListOrFormComponent}

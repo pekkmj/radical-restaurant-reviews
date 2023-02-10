@@ -8,15 +8,19 @@ const RestaurantTile = ({ restaurant }) => {
 
   let fixedRating = 0
   if (averageRating) {
-    fixedRating = averageRating.toFixed(1)
+    fixedRating = averageRating.toFixed(1) 
+  }
+
+  if (fixedRating === 0) {
+    fixedRating = "N/A"
   }
 
   return (
     <div>
-      <div class="rating">{fixedRating} <Stars stars={averageRating} /></div>
-      <div class="tileBody">
+      <div className="rating">{fixedRating} <Stars stars={averageRating} /></div>
+      <div className="tileBody">
         <h3>
-          <Link to={`/restaurants/${id}`} class="tileLink">{name}</Link>
+          <Link to={`/restaurants/${id}`} className="tileLink">{name}</Link>
         </h3>
         <p>{address}, {city}, {state}, {zipCode}</p>
         <p>{description}</p>
