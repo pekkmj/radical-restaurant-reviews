@@ -19,6 +19,7 @@ const RestaurantShow = ({ currentUser, ...props }) => {
         throw new Error(`${response.status} (${response.statusText})`)
       }
       const body = await response.json()
+      console.log(body.restaurant) 
       setRestaurant(body.restaurant)
     } catch (error) {
       console.error(`Error in fetch: ${error.message}`)
@@ -84,6 +85,8 @@ const RestaurantShow = ({ currentUser, ...props }) => {
       reviewListOrFormMessage = "Back to reviews"
       break
   }
+
+  // console.log(restaurant.reviews)
 
   return (
     <div>

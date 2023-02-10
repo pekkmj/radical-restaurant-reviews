@@ -7,7 +7,13 @@ const ReviewTile = ({ review, castVote, currentUser, reviews, restaurant, setRes
   const [voteState, setVoteState] = useState(currentUserVote.value)
 
   let deleteButton = ""
+  // console.log(currentUser)
+  // console.log(currentUser.id)
+  // console.log(review)
   if (currentUser && currentUser.id === userId){
+    console.log(currentUser)
+    console.log(currentUser.id)
+    console.log(review.userId)
     deleteButton = <DeleteButton reviewId={id} reviews={reviews} restaurant={restaurant} setRestaurant={setRestaurant}/>
   }
 
@@ -24,6 +30,17 @@ const ReviewTile = ({ review, castVote, currentUser, reviews, restaurant, setRes
     } else {
       alert("You must be signed in to vote")
     }
+  }
+
+  let upvoteButtonClass = "";
+  let downvoteButtonClass = "";
+  switch (voteState) {
+    case 1:
+      upvoteButtonClass = "success"
+      break
+    case -1:
+      downvoteButtonClass = "alert"
+      break
   }
 
   return (
