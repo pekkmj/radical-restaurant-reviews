@@ -1,9 +1,9 @@
 # Radical Restaurant Reviews
 
 ## Radical Developers
-Justin Cortez
-Vincent Kwan
-Michael Pekkarinen
+Justin Cortez <br />
+Vincent Kwan <br />
+Michael Pekkarinen <br />
 Edwyn Pinto
 
 ## Technologies Used
