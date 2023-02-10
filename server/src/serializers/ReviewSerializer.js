@@ -16,6 +16,10 @@ class ReviewSerializer {
 
     return serializedReview
   }
+
+  static averageRating(reviews) {
+    return reviews.length? reviews.reduce((tot, review) => tot + review.rating, 0) / reviews.length : 0
+  }
 }
 
 export default ReviewSerializer
