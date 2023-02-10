@@ -1,8 +1,8 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 
 import ReviewTile from "./ReviewTile.js"
 
-const ReviewList = ({ reviews, currentUser }) => {
+const ReviewList = ({ reviews, currentUser, restaurant, setRestaurant }) => {
   const castVote = async (reviewId, value) => {
     try {
       const voteData = {
@@ -26,7 +26,15 @@ const ReviewList = ({ reviews, currentUser }) => {
   }
 
   const reviewTiles = reviews.map(review => {
-    return <ReviewTile key={review.id} review={review} currentUser={currentUser} castVote={castVote} />
+    return <ReviewTile
+      key={review.id}
+      review={review}
+      currentUser={currentUser}
+      castVote={castVote}
+      reviews={reviews}
+      restaurant={restaurant}
+      setRestaurant={setRestaurant}
+    />
   })
 
   return (
