@@ -48,7 +48,7 @@ const HomePage = (props) => {
       </div>
       <div align="center">
         <div>
-          <Link className="" to="/restaurants">See All Restaurants!</Link> 
+          <Link className="" to="/restaurants">See All Restaurants!</Link>
         </div>
         <img id="bottom-logo" src={logoText} />
       </div>

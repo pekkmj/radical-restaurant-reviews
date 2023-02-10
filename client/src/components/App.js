@@ -34,11 +34,13 @@ const App = (props) => {
         <Route
           exact
           path="/"
-          component={HomePage} />
+          component={HomePage}
+        />
         <Route
           exact
           path="/restaurants"
-          component={RestaurantList} />
+          component={RestaurantList}
+        />
         <Route
           exact
           path="/restaurants/:id"
@@ -47,11 +49,13 @@ const App = (props) => {
         <Route
           exact
           path="/users/new"
-          component={RegistrationForm} />
+          component={RegistrationForm}
+        />
         <Route
           exact
           path="/user-sessions/new"
-          component={SignInForm} />
+          component={SignInForm}
+        />
       </Switch>
     </Router>
   );
