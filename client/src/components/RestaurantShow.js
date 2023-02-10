@@ -86,8 +86,6 @@ const RestaurantShow = ({ currentUser, ...props }) => {
       break
   }
 
-  // console.log(restaurant.reviews)
-
   return (
     <div>
       <Link to="/restaurants" className="button">Back to restaurants</Link>

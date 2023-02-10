@@ -7,13 +7,7 @@ const ReviewTile = ({ review, castVote, currentUser, reviews, restaurant, setRes
   const [voteState, setVoteState] = useState(currentUserVote.value)
 
   let deleteButton = ""
-  // console.log(currentUser)
-  // console.log(currentUser.id)
-  // console.log(review)
   if (currentUser && currentUser.id === userId){
-    console.log(currentUser)
-    console.log(currentUser.id)
-    console.log(review.userId)
     deleteButton = <DeleteButton reviewId={id} reviews={reviews} restaurant={restaurant} setRestaurant={setRestaurant}/>
   }
 
