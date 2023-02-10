@@ -7,7 +7,7 @@ import translateServerErrors from "../services/translateServerErrors.js"
 const RestaurantList = (props) => {
   const [restaurants, setRestaurants] = useState([])
   const [errors, setErrors] = useState({})
-  
+
   const getRestaurants = async () => {
     try {
       const response = await fetch("/api/v1/restaurants/all")
@@ -54,18 +54,24 @@ const RestaurantList = (props) => {
 
   const restaurantList = restaurants.map((restaurant) => {
     return (
-      <RestaurantTile
-        key={restaurant.id}
-        restaurant={restaurant}
-      />
+      <div class="callout cell tiles">
+        <RestaurantTile
+          key={restaurant.id}
+          restaurant={restaurant}
+        />
+      </div>
     )
   })
 
   return (
-    <div>
-      <h1>Radical Reviews</h1>
-      <ul>{restaurantList}</ul>
-      <NewRestaurantForm addRestaurant={addRestaurant} errors={errors} />
+    <div class="grid-container">
+      <h1 className="page">Radical Reviews</h1>
+      <div>
+        {restaurantList}
+      </div>
+      <div class="callout cell tiles">
+        <NewRestaurantForm addRestaurant={addRestaurant} errors={errors} />
+      </div>
     </div>
   )
 }

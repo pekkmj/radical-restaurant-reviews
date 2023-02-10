@@ -26,21 +26,27 @@ const ReviewList = ({ reviews, currentUser, restaurant, setRestaurant }) => {
   }
 
   const reviewTiles = reviews.map(review => {
-    return <ReviewTile
-      key={review.id}
-      review={review}
-      currentUser={currentUser}
-      castVote={castVote}
-      reviews={reviews}
-      restaurant={restaurant}
-      setRestaurant={setRestaurant}
-    />
+    return (
+      <div class="callout cell tiles review-tile">
+        <ReviewTile
+          key={review.id}
+          review={review}
+          currentUser={currentUser}
+          castVote={castVote}
+          reviews={reviews}
+          restaurant={restaurant}
+          setRestaurant={setRestaurant}
+        />
+      </div>
+    )
   })
 
   return (
     <div>
-      <h3>Reviews:</h3>
-      {reviewTiles}
+      <h3 className="page">Reviews:</h3>
+      <div class="grid-x grid-margin-x page">
+        {reviewTiles}
+      </div>
     </div>
   )
 }

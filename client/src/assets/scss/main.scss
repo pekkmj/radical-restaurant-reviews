@@ -36,34 +36,57 @@
   background: red;
 }
 
+.vote-button {
+  border-radius: 20px;
+  color: white;
+  padding: 10px;
+  background: purple;
+}
+
+.upvote-button:hover {
+  background: green;
+}
+
+.upvote-button-clicked {
+  background: green;
+}
+
+.downvote-button:hover {
+  background: red;
+}
+
+.downvote-button-clicked {
+  background: red;
+}
+
+.button:focus {
+  background-color: black;
+}
+
 .tiles {
   background: rgba(255, 0, 0, 0.8);
   color: antiquewhite;
   border-radius: 20px;
 }
 
-.homeLink {
-  color: black
-}
-
-.homeLink:hover {
-  color:rgba(255, 0, 0, 0.8);
-  text-decoration: underline;
+.review-tile {
+  background: rgba(38, 0, 33, 0.8);
 }
 
 .tileLink:hover {
-  font-family: 'Audiowide', serif;
   color: yellow;
   text-decoration: underline;
 }
 
 .tileLink {
+  font-family: 'Audiowide', sans-serif;
   color: yellow;
-  font-family: 'Audiowide', serif;
+  
 }
 
 .page {
-  font-family: 'Audiowide', 'sans-serif';
+  font-family: 'Audiowide', sans-serif;
+  font-weight: 100;  
 }
 
 .grid-container {
@@ -78,13 +101,32 @@
   font-style: italic;
 }
 
-.rateString {
-  position: relative;
-  left: 180px;
-  bottom: 25px;
+body {
+  font-family: 'Audiowide', sans-serif;
 }
 
-.tileBody {
-  position: relative;
-  bottom: 20px;
+i {
+  display: block;
+  margin-bottom: 20px;
+}
+
+#topbar-logo {
+  max-width: 50px;
+  max-height: 35px;
+}
+
+.homeLink {
+  color: black;
+  padding-left: 0%;
+}
+
+.homeLink:hover {
+  color:rgba(255, 0, 0, 0.8);
+  text-decoration: underline;
+}
+
+#bottom-logo {
+  margin: 30px 0px;
+  max-width: 250px;
+  max-height: 175px;
 }

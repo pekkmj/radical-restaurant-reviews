@@ -3,11 +3,13 @@ import { Link } from "react-router-dom"
 
 import ReviewList from "./ReviewList.js"
 import NewReviewForm from "./NewReviewForm.js"
+import RestaurantTile from "./RestaurantTile.js"
+
 import ErrorList from "./layout/ErrorList.js";
 import translateServerErrors from "../services/translateServerErrors.js";
 
 const RestaurantShow = ({ currentUser, ...props }) => {
-  const [restaurant, setRestaurant] = useState({reviews: []})
+  const [restaurant, setRestaurant] = useState({ reviews: [] })
   const [reviewListOrForm, setReviewListOrForm] = useState("list")
   const [errors, setErrors] = useState({})
   const { id } = props.match.params
@@ -46,6 +48,7 @@ const RestaurantShow = ({ currentUser, ...props }) => {
         const addedReview = body.review
         setRestaurant({ ...restaurant, reviews: [...restaurant.reviews, addedReview] })
         setReviewListOrForm("list")
+        setErrors({})
         return [true, addedReview];
       }
     } catch (error) {
@@ -97,12 +100,18 @@ const RestaurantShow = ({ currentUser, ...props }) => {
   return (
     <div>
       <Link to="/restaurants" className="button">Back to restaurants</Link>
-      <h3>{restaurant.name}</h3>
-      <p>{restaurant.address}, {restaurant.city}, {restaurant.state}, {restaurant.zipCode}</p>
-      <p>{restaurant.description}</p>
-      <ErrorList errors={errors} />
-      <button className="button" onClick={switchListOrForm}>{reviewListOrFormMessage}</button>
-      {reviewListOrFormComponent}
+      <div class="grid-container">
+        <div class="grid-x grid-margin-x page">
+          <div class="callout cell tiles">
+            <RestaurantTile restaurant={restaurant} />
+          </div>
+          <div class="callout cell tiles">
+            <ErrorList errors={errors} />
+            <button className="button" onClick={switchListOrForm}>{reviewListOrFormMessage}</button>
+            {reviewListOrFormComponent}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
